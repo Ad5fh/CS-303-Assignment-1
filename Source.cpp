@@ -49,7 +49,12 @@ int main() {
         if (choice == 'y' || choice == 'Y') {
             cout << "What new number would you like to add to the list? " << endl;
             cout << "The number I want to add is: ";
-            cin >> num;
+            try {
+                cin >> num;
+            }       
+            catch (exception& num) {
+                cout << num.what() <<"Error! Try again!" << endl;
+            }
             addNum(line, num, size);
         }
         //The code below output the new list with/without the added number
@@ -79,7 +84,12 @@ int main() {
             cout << "What's your new number: ";
             cin >> newNum; //asking the new number 
             cout << "In which position do you want to put it?" << endl;
-            cin >> index; //asking the index of the number to modify
+            try {
+                cin >> index; //asking the index of the number to modify
+            }
+            catch (exception& e) {
+                cout << e.what()<<"Error! Try again!" << endl;
+            }
             modifyNum(line, index, newNum, size);
         }
         cout << "The new list of number is : " << endl;
